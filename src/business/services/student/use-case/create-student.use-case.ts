@@ -1,9 +1,9 @@
-import Student from 'src/business/domain/student/entity/student.entity';
-import StudentRepository from 'src/business/domain/student/repository/student.repository';
-import ICreateStudentUseCase from 'src/business/domain/student/use-case/create-student.interface';
-import ICreateStudentDto from 'src/business/domain/student/use-case/dto/input/create-student.dto.interface';
-import IStudentDto from 'src/business/domain/student/use-case/dto/output/student.dto.interface';
-import UuidGeneratorAdapter from 'src/infrastructure/adapter/uuid-generator.adapter';
+import Student from '../../../domain/student/entity/student.entity';
+import StudentRepository from '../../../domain/student/repository/student.repository';
+import ICreateStudentUseCase from '../../../domain/student/use-case/create-student.interface';
+import ICreateStudentDto from '../../../domain/student/use-case/dto/input/create-student.dto.interface';
+import IStudentDto from '../../../domain/student/use-case/dto/output/student.dto.interface';
+import UuidGeneratorAdapter from '../../../../infrastructure/adapter/uuid-generator.adapter';
 
 export default class CreateStudentUseCase implements ICreateStudentUseCase {
   constructor(
