@@ -22,4 +22,30 @@ export default class Student {
     this._registration = new Registration(payload.registration);
     this._phoneNumber = new PhoneNumber(payload.phoneNumber);
   }
+
+  get id() {
+    return this._id.value;
+  }
+
+  get name() {
+    return this._name.value;
+  }
+
+  set name(value: string) {
+    this._name = new Name(value);
+  }
+
+  get registration() {
+    return this._registration.value;
+  }
+  set registration(value: number) {
+    this._registration = new Registration(value);
+  }
+
+  get phoneNumber() {
+    return this._phoneNumber.value;
+  }
+  set phoneNumber(value: string) {
+    this._phoneNumber = new PhoneNumber(value);
+  }
 }
