@@ -1,4 +1,4 @@
-import { IsDefined, Length, validateSync } from 'class-validator';
+import { Length, validateSync } from 'class-validator';
 import { handleErrors } from '../../../common/error/handle-errors';
 
 export default class Name {
