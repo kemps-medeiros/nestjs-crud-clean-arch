@@ -14,4 +14,6 @@ export default abstract class StudentRepository {
   protected abstract insert(student: Student): Promise<void>;
 
   abstract findById(id: string): Promise<Student>;
+
+  abstract findAll(): Promise<Student[]>;
 }
