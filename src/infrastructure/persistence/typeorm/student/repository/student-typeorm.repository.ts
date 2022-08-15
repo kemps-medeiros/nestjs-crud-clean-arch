@@ -31,4 +31,12 @@ export default class StudentTypeOrmRepository extends StudentRepository {
 
     return StudentMapper.toDomain(ormEntity);
   }
+
+  async findAll(): Promise<studentEntity[]> {
+    const studentsTypeOrm = await this.studentTypeOrmRepository.find();
+
+    return studentsTypeOrm.map((ormEntity) =>
+      StudentMapper.toDomain(ormEntity),
+    );
+  }
 }
