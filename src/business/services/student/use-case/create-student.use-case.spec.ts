@@ -20,7 +20,7 @@ class FakeUuidGeneratorAdapter extends UuidGeneratorAdapter {
 }
 
 describe('Create Student UseCase', () => {
-  it('Should be possible create a student and save on repository', async () => {
+  it('Should be possible create a student', async () => {
     const fakeStudentRepository = new FakeStudentRepository();
     const fakeUuidGenerator = new UuidGeneratorAdapter();
 
@@ -44,5 +44,25 @@ describe('Create Student UseCase', () => {
     expect(student.name).toBe(createStudentDto.name);
     expect(student.registration).toBe(createStudentDto.registration);
     expect(student.phoneNumber).toBe(createStudentDto.phoneNumber);
+  });
+
+  it('Should throw an error when dto is invalid', async () => {
+    const fakeStudentRepository = new FakeStudentRepository();
+    const fakeUuidGenerator = new UuidGeneratorAdapter();
+
+    const createStudentUseCase = new CreateStudentUseCase(
+      fakeStudentRepository,
+      fakeUuidGenerator,
+    );
+
+    const createStudentDto: ICreateStudentDto = {
+      name: '',
+      registration: null,
+      phoneNumber: '',
+    };
+
+    await expect(() =>
+      createStudentUseCase.execute(createStudentDto),
+    ).rejects.toThrowError();
   });
 });
