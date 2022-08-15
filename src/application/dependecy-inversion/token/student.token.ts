@@ -4,3 +4,7 @@ export const StudentRepositoryToken: unique symbol =
 export const CreateStudentUseCaseToken: unique symbol = Symbol(
   'CreateStudentUseCase',
 );
+
+export const ListStudentsUseCaseToken: unique symbol = Symbol(
+  'ListStudentsUseCase',
+);
