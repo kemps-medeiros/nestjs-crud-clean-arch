@@ -5,6 +5,9 @@ import UuidGeneratorAdapter from '../../../../../src/infrastructure/adapter/uuid
 import CreateStudentUseCase from './create-student.use-case';
 
 class FakeStudentRepository extends StudentRepository {
+  findAll(): Promise<studentEntity[]> {
+    throw new Error('Method not implemented.');
+  }
   protected insert(): Promise<void> {
     return;
   }
