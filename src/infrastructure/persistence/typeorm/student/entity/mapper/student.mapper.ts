@@ -1,4 +1,4 @@
-import Student from 'src/business/domain/student/entity/student.entity';
+import Student from '../../../../../../business/domain/student/entity/student.entity';
 import StudentTypeOrmEntity from '../student.typeorm.entity';
 
 export default class StudentMapper {
