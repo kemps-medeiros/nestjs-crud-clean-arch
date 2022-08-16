@@ -8,3 +8,7 @@ export const CreateStudentUseCaseToken: unique symbol = Symbol(
 export const ListStudentsUseCaseToken: unique symbol = Symbol(
   'ListStudentsUseCase',
 );
+
+export const GetStudentByIdUseCaseToken: unique symbol = Symbol(
+  'GetStudentByIdUseCase',
+);

@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import IUuidGeneratorAdapter from 'src/business/common/adapter/uuid-generator-adapter.interface';
 import StudentRepository from 'src/business/domain/student/repository/student.repository';
 import CreateStudentUseCase from 'src/business/services/student/use-case/create-student.use-case';
+import GetStudentByIdUseCase from 'src/business/services/student/use-case/get-student-by-id.use-case';
 import ListStudentsUseCase from 'src/business/services/student/use-case/list-students.use-case';
 import StudentTypeOrmRepository from 'src/infrastructure/persistence/typeorm/student/repository/student-typeorm.repository';
 import { DataSource } from 'typeorm';
@@ -14,6 +15,7 @@ import {
 } from './token/app.token';
 import {
   CreateStudentUseCaseToken,
+  GetStudentByIdUseCaseToken,
   ListStudentsUseCaseToken,
   StudentRepositoryToken,
 } from './token/student.token';
@@ -38,6 +40,13 @@ import {
       provide: ListStudentsUseCaseToken,
       useFactory: (studentRepository: StudentRepository) => {
         return new ListStudentsUseCase(studentRepository);
+      },
+      inject: [StudentRepositoryToken],
+    },
+    {
+      provide: GetStudentByIdUseCaseToken,
+      useFactory: (studentRepository: StudentRepository) => {
+        return new GetStudentByIdUseCase(studentRepository);
       },
       inject: [StudentRepositoryToken],
     },
