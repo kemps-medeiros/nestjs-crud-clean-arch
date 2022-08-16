@@ -1,9 +1,11 @@
-import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Get, Inject, Param, Post } from '@nestjs/common';
 import {
   CreateStudentUseCaseToken,
+  GetStudentByIdUseCaseToken,
   ListStudentsUseCaseToken,
 } from 'src/application/dependecy-inversion/token/student.token';
 import ICreateStudentUseCase from 'src/business/domain/student/use-case/create-student.interface';
+import IGetStudentByIdUseCase from 'src/business/domain/student/use-case/get-student-by-id.interface';
 import IListStudentsUseCase from 'src/business/domain/student/use-case/list-students.interface';
 import CreateStudentRequest from './request/create-student.request';
 
@@ -15,6 +17,9 @@ export default class StudentController {
 
     @Inject(ListStudentsUseCaseToken)
     readonly listStudentsUseCase: IListStudentsUseCase,
+
+    @Inject(GetStudentByIdUseCaseToken)
+    readonly getStudentByIdUseCase: IGetStudentByIdUseCase,
   ) {}
 
   @Post()
@@ -25,5 +30,10 @@ export default class StudentController {
   @Get()
   async getAll() {
     return await this.listStudentsUseCase.execute();
+  }
+
+  @Get(':id')
+  async getStudentById(@Param('id') id: string) {
+    return await this.getStudentByIdUseCase.execute(id);
   }
 }
