@@ -26,7 +26,7 @@ export default class StudentTypeOrmRepository extends StudentRepository {
       await this.studentTypeOrmRepository.findOne({ where: { id } });
 
     if (!ormEntity) {
-      return null;
+      throw new Error('Student Not Found');
     }
 
     return StudentMapper.toDomain(ormEntity);
