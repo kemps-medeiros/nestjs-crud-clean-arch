@@ -11,6 +11,12 @@ export default abstract class StudentRepository {
     await this.insert(student);
   }
 
+  async edit(student: Student): Promise<void> {
+    await this.update(student);
+  }
+
+  protected abstract update(student: Student): Promise<void>;
+
   protected abstract insert(student: Student): Promise<void>;
 
   abstract findById(id: string): Promise<Student>;

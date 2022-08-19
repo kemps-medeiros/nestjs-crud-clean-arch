@@ -39,4 +39,10 @@ export default class StudentTypeOrmRepository extends StudentRepository {
       StudentMapper.toDomain(ormEntity),
     );
   }
+
+  protected async update(student: studentEntity): Promise<void> {
+    const ormEntity = StudentMapper.toTypeOrm(student);
+
+    await this.studentTypeOrmRepository.update({ id: ormEntity.id }, ormEntity);
+  }
 }
