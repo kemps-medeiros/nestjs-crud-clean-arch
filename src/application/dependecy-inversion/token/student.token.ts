@@ -16,3 +16,7 @@ export const GetStudentByIdUseCaseToken: unique symbol = Symbol(
 export const UpdateStudentUseCaseToken: unique symbol = Symbol(
   'UpdateStudentUseCaseToken',
 );
+
+export const RemoveStudentUseCaseToken: unique symbol = Symbol(
+  'RemoveStudentUseCaseToken',
+);

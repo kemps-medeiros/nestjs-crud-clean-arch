@@ -4,6 +4,7 @@ import StudentRepository from 'src/business/domain/student/repository/student.re
 import CreateStudentUseCase from 'src/business/services/student/use-case/create-student.use-case';
 import GetStudentByIdUseCase from 'src/business/services/student/use-case/get-student-by-id.use-case';
 import ListStudentsUseCase from 'src/business/services/student/use-case/list-students.use-case';
+import RemoveStudentUseCase from 'src/business/services/student/use-case/remove-student.use-case';
 import UpdateStudentUseCase from 'src/business/services/student/use-case/update-student.use-case';
 import StudentTypeOrmRepository from 'src/infrastructure/persistence/typeorm/student/repository/student-typeorm.repository';
 import { DataSource } from 'typeorm';
@@ -18,6 +19,7 @@ import {
   CreateStudentUseCaseToken,
   GetStudentByIdUseCaseToken,
   ListStudentsUseCaseToken,
+  RemoveStudentUseCaseToken,
   StudentRepositoryToken,
   UpdateStudentUseCaseToken,
 } from './token/student.token';
@@ -49,6 +51,13 @@ import {
       provide: UpdateStudentUseCaseToken,
       useFactory: (studentRepository: StudentRepository) => {
         return new UpdateStudentUseCase(studentRepository);
+      },
+      inject: [StudentRepositoryToken],
+    },
+    {
+      provide: RemoveStudentUseCaseToken,
+      useFactory: (studentRepository: StudentRepository) => {
+        return new RemoveStudentUseCase(studentRepository);
       },
       inject: [StudentRepositoryToken],
     },
