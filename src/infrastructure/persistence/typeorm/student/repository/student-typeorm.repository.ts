@@ -45,4 +45,8 @@ export default class StudentTypeOrmRepository extends StudentRepository {
 
     await this.studentTypeOrmRepository.update({ id: ormEntity.id }, ormEntity);
   }
+
+  async delete(id: string): Promise<any> {
+    return await this.studentTypeOrmRepository.delete(id);
+  }
 }

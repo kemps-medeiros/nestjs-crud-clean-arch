@@ -1,3 +1,4 @@
+import { DeleteResult } from 'typeorm';
 import Student from '../entity/student.entity';
 
 export default abstract class StudentRepository {
@@ -22,4 +23,6 @@ export default abstract class StudentRepository {
   abstract findById(id: string): Promise<Student>;
 
   abstract findAll(): Promise<Student[]>;
+
+  abstract delete(id: string): Promise<any>;
 }
