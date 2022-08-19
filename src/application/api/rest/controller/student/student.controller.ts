@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Inject,
   Param,
@@ -11,11 +12,13 @@ import {
   CreateStudentUseCaseToken,
   GetStudentByIdUseCaseToken,
   ListStudentsUseCaseToken,
+  RemoveStudentUseCaseToken,
   UpdateStudentUseCaseToken,
 } from 'src/application/dependecy-inversion/token/student.token';
 import ICreateStudentUseCase from 'src/business/domain/student/use-case/create-student.interface';
 import IGetStudentByIdUseCase from 'src/business/domain/student/use-case/get-student-by-id.interface';
 import IListStudentsUseCase from 'src/business/domain/student/use-case/list-students.interface';
+import IRemoveStudentUseCase from 'src/business/domain/student/use-case/remove-student.interface';
 import IUpdateStudentUseCase from 'src/business/domain/student/use-case/update-student.interface';
 import CreateStudentRequest from './request/create-student.request';
 import UpdateStudentRequest from './request/update-student.request';
@@ -31,6 +34,9 @@ export default class StudentController {
 
     @Inject(UpdateStudentUseCaseToken)
     readonly updateStudentUseCase: IUpdateStudentUseCase,
+
+    @Inject(RemoveStudentUseCaseToken)
+    readonly removeStudentUseCase: IRemoveStudentUseCase,
 
     @Inject(GetStudentByIdUseCaseToken)
     readonly getStudentByIdUseCase: IGetStudentByIdUseCase,
@@ -55,5 +61,10 @@ export default class StudentController {
   async edit(@Param('id') id: string, @Body() request: UpdateStudentRequest) {
     request.id = id;
     return await this.updateStudentUseCase.execute(request);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: string) {
+    return await this.removeStudentUseCase.execute(id);
   }
 }
