@@ -58,6 +58,57 @@ describe('Update Student Use Case', () => {
     expect(updatedStudent.phoneNumber).toBe(updateDto.phoneNumber);
   });
 
+  it('Should be possible edit only the name of student', async () => {
+    const fakeRepository = new FakeStudentRepository();
+
+    const updateUseCase = new UpdateStudentUseCase(fakeRepository);
+
+    const studentRepositoryEditMethodSpy = jest.spyOn(fakeRepository, 'edit');
+
+    const updateDto: IUpdateStudentDto = {
+      id: '7b1e2f7c-bce4-4f8e-b62c-536eec0af868',
+      name: 'Lionel Messi',
+    };
+
+    const updatedStudent = await updateUseCase.execute(updateDto);
+
+    expect(updatedStudent.name).toBe(updateDto.name);
+  });
+
+  it('Should be possible edit only the registration of student', async () => {
+    const fakeRepository = new FakeStudentRepository();
+
+    const updateUseCase = new UpdateStudentUseCase(fakeRepository);
+
+    const studentRepositoryEditMethodSpy = jest.spyOn(fakeRepository, 'edit');
+
+    const updateDto: IUpdateStudentDto = {
+      id: '7b1e2f7c-bce4-4f8e-b62c-536eec0af868',
+      registration: 1000,
+    };
+
+    const updatedStudent = await updateUseCase.execute(updateDto);
+
+    expect(updatedStudent.registration).toBe(updateDto.registration);
+  });
+
+  it('Should be possible edit only the phoneNumber of student', async () => {
+    const fakeRepository = new FakeStudentRepository();
+
+    const updateUseCase = new UpdateStudentUseCase(fakeRepository);
+
+    const studentRepositoryEditMethodSpy = jest.spyOn(fakeRepository, 'edit');
+
+    const updateDto: IUpdateStudentDto = {
+      id: '7b1e2f7c-bce4-4f8e-b62c-536eec0af868',
+      phoneNumber: '+55 19 91010-1010',
+    };
+
+    const updatedStudent = await updateUseCase.execute(updateDto);
+
+    expect(updatedStudent.phoneNumber).toBe(updateDto.phoneNumber);
+  });
+
   it('Should throw an error when dont find student', async () => {
     const fakeRepository = new FakeStudentRepository();
 
