@@ -25,26 +25,4 @@ describe('Student Controller E2E Test', () => {
       })
       .expect(201);
   });
-
-  //   it.only('should return a 500 when invalid parameters', () => {
-  //     return request(app.getHttpServer())
-  //       .post('/student/')
-  //       .send({
-  //         name: 'a',
-  //         registration: 1,
-  //         phoneNumber: '4',
-  //       })
-  //       .expect(400);
-  //   });
-
-  //   it('should return a 400 when invalid name', () => {
-  //     return request(app.getHttpServer())
-  //       .post('/student')
-  //       .send({
-  //         name: 'R',
-  //         registration: 1,
-  //         phoneNumber: '+55 19 91111-1111',
-  //       })
-  //       .expect(400);
-  //   });
 });
