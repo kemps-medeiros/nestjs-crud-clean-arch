@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import UuidGeneratorAdapter from 'src/infrastructure/adapter/uuid-generator.adapter';
+import UuidGeneratorAdapter from '../../../infrastructure/adapter/uuid-generator.adapter';
 import { IdentifierGeneratorServiceToken } from '../token/app.token';
 
 const providers = [

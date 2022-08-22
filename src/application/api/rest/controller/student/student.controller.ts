@@ -14,12 +14,12 @@ import {
   ListStudentsUseCaseToken,
   RemoveStudentUseCaseToken,
   UpdateStudentUseCaseToken,
-} from 'src/application/dependecy-inversion/token/student.token';
-import ICreateStudentUseCase from 'src/business/domain/student/use-case/create-student.interface';
-import IGetStudentByIdUseCase from 'src/business/domain/student/use-case/get-student-by-id.interface';
-import IListStudentsUseCase from 'src/business/domain/student/use-case/list-students.interface';
-import IRemoveStudentUseCase from 'src/business/domain/student/use-case/remove-student.interface';
-import IUpdateStudentUseCase from 'src/business/domain/student/use-case/update-student.interface';
+} from '../../../../dependecy-inversion/token/student.token';
+import ICreateStudentUseCase from '../../../../../business/domain/student/use-case/create-student.interface';
+import IGetStudentByIdUseCase from '../../../../../business/domain/student/use-case/get-student-by-id.interface';
+import IListStudentsUseCase from '../../../../../business/domain/student/use-case/list-students.interface';
+import IRemoveStudentUseCase from '../../../../../business/domain/student/use-case/remove-student.interface';
+import IUpdateStudentUseCase from '../../../../../business/domain/student/use-case/update-student.interface';
 import CreateStudentRequest from './request/create-student.request';
 import UpdateStudentRequest from './request/update-student.request';
 
