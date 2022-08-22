@@ -39,7 +39,5 @@ it('Should delete a student correctly', async () => {
 
   try {
     expect(await removedStudent).not.toThrowError();
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 });
