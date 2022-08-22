@@ -5,6 +5,12 @@ import UuidGeneratorAdapter from '../../../../../src/infrastructure/adapter/uuid
 import CreateStudentUseCase from './create-student.use-case';
 
 class FakeStudentRepository extends StudentRepository {
+  protected update(student: studentEntity): Promise<void> {
+    throw new Error('Method not implemented.');
+  }
+  delete(id: string): Promise<any> {
+    throw new Error('Method not implemented.');
+  }
   findAll(): Promise<studentEntity[]> {
     throw new Error('Method not implemented.');
   }

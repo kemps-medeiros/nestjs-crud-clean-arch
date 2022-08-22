@@ -3,6 +3,12 @@ import StudentRepository from '../../../domain/student/repository/student.reposi
 import GetStudentByIdUseCase from './get-student-by-id.use-case';
 
 class FakeStudentRepository extends StudentRepository {
+  protected update(student: Student): Promise<void> {
+    throw new Error('Method not implemented.');
+  }
+  delete(id: string): Promise<any> {
+    throw new Error('Method not implemented.');
+  }
   students: Student[] = [
     new Student({
       id: 'bdcaa707-b106-4ba8-ace3-2f1881a93cbb',
