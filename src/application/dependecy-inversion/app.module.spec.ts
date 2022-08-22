@@ -3,7 +3,7 @@ import DatabaseModule from './modules/database.module';
 import UuidGeneratorModule from './modules/uuid-generator.module';
 import { StudentModule } from './student.module';
 
-describe('Student Module', () => {
+describe('App Module', () => {
   it('Should compile the module', async () => {
     const module = await Test.createTestingModule({
       imports: [UuidGeneratorModule, DatabaseModule, StudentModule],
