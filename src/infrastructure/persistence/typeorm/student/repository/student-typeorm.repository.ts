@@ -1,5 +1,5 @@
-import studentEntity from 'src/business/domain/student/entity/student.entity';
-import StudentRepository from 'src/business/domain/student/repository/student.repository';
+import studentEntity from '../../../../../business/domain/student/entity/student.entity';
+import StudentRepository from '../../../../../business/domain/student/repository/student.repository';
 import { DataSource, Repository } from 'typeorm';
 import StudentMapper from '../entity/mapper/student.mapper';
 import StudentTypeOrmEntity from '../entity/student.typeorm.entity';
